@@ -1,6 +1,7 @@
 import 'package:fan_carousel_image_slider/fan_carousel_image_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:online_shopping_app_ui/product_pop_up.dart';
 
 class ProductScreen extends StatelessWidget {
   List<String> imageList = [
@@ -10,12 +11,14 @@ class ProductScreen extends StatelessWidget {
     "assets/images/image4.jpg",
   ];
 
+  ProductScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -36,7 +39,7 @@ class ProductScreen extends StatelessWidget {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         SizedBox(
                           height: 30,
                         ),
@@ -49,7 +52,7 @@ class ProductScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 5),
                         Text(
-                          "Hodded Jacket",
+                          "Hooded  Jacket",
                           style: TextStyle(
                             color: Colors.black54,
                             fontWeight: FontWeight.w500,
@@ -57,7 +60,7 @@ class ProductScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Text(
+                    const Text(
                       "\$309.99",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -66,33 +69,32 @@ class ProductScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 RatingBar.builder(
                   initialRating: 3,
                   minRating: 1,
                   direction: Axis.horizontal,
                   allowHalfRating: true,
                   itemCount: 5,
-                  itemPadding: EdgeInsets.only(right: 4.0),
+                  itemPadding: const EdgeInsets.only(right: 4.0),
                   itemSize: 25,
-                  itemBuilder: (context, _) => Icon(
+                  itemBuilder: (context, _) => const Icon(
                     Icons.favorite,
                     color: Colors.amber,
                   ),
                   onRatingUpdate: (rating) {
-                    print(rating);
                   },
                 ),
-                SizedBox(height: 10),
-                Text(
+                const SizedBox(height: 10),
+                const Text(
                   "Coot, windy weather is on i'ts way. Send him out the door "
-                  "in a jacket he wants to wear. Warm Zooper Hodded Jacket.",
+                  "in a jacket he wants to wear. Warm Zooper Hooded  Jacket.",
                   style: TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.w400,
                       fontSize: 16),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -100,15 +102,15 @@ class ProductScreen extends StatelessWidget {
                       height: 60,
                       width: 60,
                       decoration: BoxDecoration(
-                        color: Color(0x1F989797),
+                        color: const Color(0x1F989797),
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      child: Center(
+                      child: const Center(
                         child:
                             Icon(Icons.shopping_cart, color: Color(0xFFE95858)),
                       ),
                     ),
-
+                      const ProductSpecificationPopUp(),
                   ],
                 )
               ],
