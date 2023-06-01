@@ -1,9 +1,9 @@
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:online_shopping_app_ui/gridview_items_list.dart';
 
 class HomeScreen extends StatelessWidget {
-
-
   List<String> tabs = ["All", "Category", "Top", "Recommended"];
 
   @override
@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                 SizedBox(height: 20),
+                SizedBox(height: 20),
                 Container(
                   height: 150,
                   width: MediaQuery.of(context).size.width,
@@ -69,16 +69,16 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: Image.asset("assets/images/freed.png"),
                 ),
-                 SizedBox(height: 20),
+                SizedBox(height: 20),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
                       for (var i = 0; i < 4; i++)
-                       FittedBox(
+                        FittedBox(
                           child: Container(
-                            margin:  EdgeInsets.all(8),
-                            padding:  EdgeInsets.only(left: 15, right: 15),
+                            margin: EdgeInsets.all(8),
+                            padding: EdgeInsets.only(left: 15, right: 15),
                             height: 40,
                             decoration: BoxDecoration(
                               color: Colors.black12.withOpacity(0.05),
@@ -88,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                               child: FittedBox(
                                 child: Text(
                                   tabs[i],
-                                  style:  TextStyle(
+                                  style: TextStyle(
                                     color: Colors.black38,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -105,6 +105,30 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+          height: 60,
+          buttonBackgroundColor: Color(0xFFE95858),
+          backgroundColor: Color(0x5C000000).withOpacity(0.15),
+          index: 2,
+          items: [
+            CurvedNavigationBarItem(
+              child: Icon(Icons.shopping_cart, color: Colors.black54),
+            ),
+            CurvedNavigationBarItem(
+              child: Icon(Icons.favorite, color: Colors.black54),
+            ),
+            CurvedNavigationBarItem(
+              child: Icon(Icons.home_filled, color: Colors.black54),
+            ),
+            CurvedNavigationBarItem(
+              child: Icon(Icons.qr_code_2_outlined, color: Colors.black54),
+            ),
+            CurvedNavigationBarItem(
+              child: Icon(Icons.person, color: Colors.black54),
+            ),
+          ],
+          onTap: (index){},
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_shopping_app_ui/product_screen.dart';
 
 class GridViewItemsList extends StatelessWidget {
   List<String> imageList = [
@@ -45,7 +46,10 @@ class GridViewItemsList extends StatelessWidget {
                   child: Stack(
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => ProductScreen()));
+                        },
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Image.asset(imageList[index]),
@@ -64,7 +68,7 @@ class GridViewItemsList extends StatelessWidget {
                           child: Center(
                             child: Icon(
                               Icons.favorite,
-                              color: Colors.red,
+                              color: Color(0xFFE95858),
                               size: 20,
                             ),
                           ),
@@ -87,7 +91,7 @@ class GridViewItemsList extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 18,
-                      color: Colors.redAccent),
+                      color: Color(0xFFE95858)),
                 )
               ],
             ),
